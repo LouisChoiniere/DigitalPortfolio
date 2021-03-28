@@ -12,7 +12,7 @@ export class ProjectsComponent implements OnInit {
 
     constructor(service: ProjectsService) {
         service.getProjects().subscribe(data => {
-            this.projects = data
+            this.projects = data;
         });
     }
 
