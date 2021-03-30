@@ -11,13 +11,13 @@ export class ExperienceComponent implements OnInit {
 
     experiences!: Array<any>;
 
-    constructor(service: ExperienceService) {
-        service.getExperience().subscribe(data => {
-            this.experiences = data;
-        });
+    constructor(private service: ExperienceService) {
     }
 
     ngOnInit(): void {
+        this.service.getExperience().subscribe(data => {
+            this.experiences = data;
+        });
     }
 
 }

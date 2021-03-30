@@ -11,13 +11,13 @@ export class BlogComponent implements OnInit {
 
     blogs!: Array<Blog>;
 
-    constructor(service: BlogService) {
-        service.getBlog().subscribe(data => {
-            this.blogs = data;
-        })
+    constructor(private service: BlogService) {
     }
 
     ngOnInit(): void {
+        this.service.getBlog().subscribe(data => {
+            this.blogs = data;
+        })
     }
 
 }

@@ -22,14 +22,17 @@ export class ContactComponent implements OnInit {
             f.form.disable()
 
             const contact: Contact = f.form.value;
-            this.service.sendContact(contact, () => {
-                f.reset();
-                f.form.enable();
-                alert("Message sent!");
-            }, () => {
-                f.form.enable();
-                alert("The message could not be sent");
-            })
+            this.service.sendContact(contact).subscribe({
+                next: data => {
+                    f.reset();
+                    f.form.enable();
+                    alert("Message sent!");
+                },
+                error: error => {
+                    f.form.enable();
+                    alert("The message could not be sent");
+                }
+            });
         }
     }
 

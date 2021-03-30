@@ -10,12 +10,12 @@ export class ProjectsComponent implements OnInit {
 
     projects!: Array<any>;
 
-    constructor(service: ProjectsService) {
-        service.getProjects().subscribe(data => {
-            this.projects = data;
-        });
+    constructor(private service: ProjectsService) {
     }
 
     ngOnInit(): void {
+        this.service.getProjects().subscribe(data => {
+            this.projects = data;
+        });
     }
 }
