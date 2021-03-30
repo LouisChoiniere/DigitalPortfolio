@@ -21,6 +21,7 @@
       "dom"
     ],
     "paths": {
+        "@env/*":["src/environments/*"],
         "@model/*":["src/app/model/*"]
     }
   },
