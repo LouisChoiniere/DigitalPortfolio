@@ -2,23 +2,97 @@
 
     <div id="content">
 
-        <app-me></app-me>
+        <section>
+            <h1>{{me.firstName}} {{me.lastName}}</h1>
+            <app-links [links]="me.links"></app-links>
+        </section>
+        
+        <hr>
+        
+        <section>
+            <h2>About</h2>
+            <p>{{me.about}}</p>
+        </section>
+        
 
         <hr>
 
-        <app-projects></app-projects>
+        <section>
+            <h2>Projects</h2>
+            
+            <div class="element" *ngFor="let project of projects">
+                
+                <h3>{{project.title}}</h3>
+                <p>{{project.date}}</p>
+                <p>{{project.description}}</p>
+                
+                <!-- TODO: display : gaols, outputs, role(if team project) -->
+        
+                <app-links [links]="project.links"></app-links>
+            </div>
+        </section>
 
         <hr>
 
-        <app-experience></app-experience>
+        <section>
+            <h2>Experience</h2>
+        
+            <div class="element" *ngFor="let experience of experiences">
+        
+                <h3 class="positon">{{experience.position.name}}</h3>
+                <p class="date">{{experience.date.start}} - {{experience.date.end}}</p>
+                <p class="compagny">{{experience.compagny}}</p>
+                <p class="description">{{experience.position.description}}</p>
+        
+            </div>
+        </section>        
 
         <hr>
 
-        <app-contact></app-contact>
+        <section>
+            <h2>Contact me!</h2>
+        
+            <form #f="ngForm" (ngSubmit)="submit(f)">
+                <label for="name">Name</label>
+                <div *ngIf="name.touched" class="error">
+                    <span *ngIf="name.errors?.required">Field is required</span>
+                </div>
+                <input required ngModel #name="ngModel" name="name" id="name" type="text" placeholder="Your name..">
+        
+                <label for="email">Email</label>
+                <div *ngIf="email.touched" class="error">
+                    <span *ngIf="email.errors?.required">Field is required</span>
+                </div>
+                <input required ngModel #email="ngModel" name="email" id="email" type="text" placeholder="Your email..">
+        
+                <label for="subject">Subject</label>
+                <div *ngIf="subject.touched" class="error">
+                    <span *ngIf="subject.errors?.required">Field is required</span>
+                </div>
+                <input required ngModel #subject="ngModel" name="subject" type="text" id="subject" placeholder="Subject..">
+        
+                <label for="message">Message</label>
+                <div *ngIf="message.touched" class="error">
+                    <span *ngIf="message.errors?.required">Field is required</span>
+                </div>
+                <textarea required ngModel #message="ngModel" name="message" id="message" placeholder="Message.." style="height:150px"></textarea>
+        
+                <input type="submit" value="Submit">
+            </form>
+        </section>
 
         <hr>
 
-        <app-blog></app-blog>
+        <section>
+            <h2>Blog</h2>
+        
+            <div class="element post" *ngFor="let blog of blogs">
+        
+                <h3>{{blog.title}}</h3>
+                <P>{{blog.content}}</P>
+        
+            </div>
+        </section>
 
     </div>
 

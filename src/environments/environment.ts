@@ -10,7 +10,11 @@ export const environment = {
     admin: {
         endpont: '/admin',
         
-        contact: '/contact'
+        me: '/me',
+        message: '/contact',
+        blog: '/blog',
+        project: '/project',
+        experience: '/experience',
     }
 };
 

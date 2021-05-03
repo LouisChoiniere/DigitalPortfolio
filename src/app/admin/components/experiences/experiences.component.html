@@ -1,0 +1,32 @@
+<div class="container">
+
+    <h2 class="title is-h2">Experiences</h2>
+
+    <div class="box">
+        <h3 class="title is-3">Experiences</h3>
+
+        <div class="buttons are-small">
+            <button (click)="loadExperiences()" class="button">
+                <span class="icon">
+                    <i class="fas fa-sync-alt"></i>
+                </span>
+                <span>Refresh</span>
+            </button>
+        </div>
+
+        <article class="media" *ngFor="let experience of experiences">
+            <div class="media-content">
+                <p>
+                    <strong>{{ experience.compagny }} {{ experience.position.name }} </strong> &nbsp;
+                    <small>{{ experience.date.start }} - {{ experience.date.end }}</small>
+                </p>
+                <p>
+                    {{ experience.position.description }}
+                </p>
+            </div>
+            <div class="media-right">
+                <button class="delete" aria-label="delete"></button>
+            </div>
+        </article>
+    </div>
+</div>

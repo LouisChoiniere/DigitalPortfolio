@@ -1,0 +1,41 @@
+<div class="container">
+
+    <h2 class="title is-h2">Me</h2>
+
+    <div class="box">
+        <form [formGroup]="form" class="form">
+            <div class="field field-body">
+                <div class="field">
+                    <label for="firstName" class="label">First Name</label>
+                    <div class="control">
+                        <input formControlName="firstName" name="firstName" id="firstName" type="text" class="input">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="lastName" class="label">Last Name</label>
+                    <div class="control">
+                        <input formControlName="lastName" name="lastName" id="lastName" type="text" class="input">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label for="about" class="label">About</label>
+                <div class="control">
+                    <textarea formControlName="about" name="about" id="about" type="text" class="textarea"></textarea>
+                </div>
+            </div>
+
+            <app-adminLinks [links]="me.links"></app-adminLinks>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button (click)="update()" class="button">Update</button>
+                </div>
+                <div class="control">
+                    <button (click)="newLink()" class="level-item button">Add new link</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

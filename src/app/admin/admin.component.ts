@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Contact from '@model/contact';
-import { AdminService } from './service/admin.service';
 
 @Component({
     selector: 'app-admin',
@@ -9,16 +7,11 @@ import { AdminService } from './service/admin.service';
 })
 export class AdminComponent implements OnInit {
 
-    messages!: Contact[];
 
-    constructor(private service: AdminService) {
+    constructor() {
     }
 
     ngOnInit(): void {
-
-        this.service.getMessages().subscribe(data => {
-            this.messages = data;
-        })
 
     }
 

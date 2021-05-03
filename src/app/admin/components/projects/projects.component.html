@@ -1,0 +1,103 @@
+<div class="container">
+
+    <h2 class="title is-h2">Projects</h2>
+
+    <div class="box">
+        <h3 class="title is-3">Projects</h3>
+
+        <div class="buttons are-small">
+            <button (click)="loadProjects()" class="button">
+                <span class="icon">
+                    <i class="fas fa-sync-alt"></i>
+                </span>
+                <span>Refresh</span>
+            </button>
+            <button (click)="addProject()" class="button">
+                <span class="icon">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span>Add Project</span>
+            </button>
+        </div>
+
+        <article class="media" *ngFor="let project of projects">
+            <div class="media-content">
+                <p>
+                    <strong>{{ project.title }} </strong> &nbsp; <small>{{ project.date }}</small>
+                </p>
+                <p>
+                    {{ project.description }}
+                </p>
+                <p>
+                    {{ project.goal }}
+                </p>
+
+                <app-adminLinks [links]="project.links"></app-adminLinks>
+                <nav class="level">
+                    <div class="level-left">
+                        <button (click)="editProject(project._id)" class="level-item button is-small">Edit</button>
+                        <button (click)="newLink(project._id)" class="level-item button is-small">Add new link</button>
+                    </div>
+                </nav>
+            </div>
+            <div class="media-right">
+                <button (click)="deleteProject(project._id)" class="delete" aria-label="delete"></button>
+            </div>
+        </article>
+
+    </div>
+</div>
+
+<div class="modal" [ngClass]="{'is-active': modal.isOpen}">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <form [formGroup]="form" class="form">
+                <div class="field">
+                    <label for="tile">Tile</label>
+                    <div class="control">
+                        <input type="text" formControlName="title" id="title" name="title" class="input">
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <label for="date">Date</label>
+                    <div class="control">
+                        <input type="text" formControlName="date" id="date" name="date" class="input">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="description">Description</label>
+                    <div class="control">
+                        <textarea formControlName="description" name="description" id="description" type="text" class="textarea"></textarea>
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <label for="goal">Goal</label>
+                    <div class="control">
+                        <textarea formControlName="goal" name="goal" id="goal" type="text" class="textarea"></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="displayOrder">DisplayOrder</label>
+                    <div class="control">
+                        <input type="number" formControlName="displayOrder" id="displayOrder" name="displayOrder" class="input">
+                    </div>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button (click)="modalSave()" class="button">Save</button>
+                    </div>
+                    <div class="control">
+                        <button (click)="modalClose()" class="button">Close</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <button (click)="modalClose()" class="modal-close is-large" aria-label="close"></button>
+</div>

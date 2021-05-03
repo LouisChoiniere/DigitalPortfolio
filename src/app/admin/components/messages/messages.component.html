@@ -1,0 +1,33 @@
+<div class="container">
+
+    <p class="title is-2">Messages</p>
+
+    <div class="box">
+
+        <div class="buttons are-small">
+            <button (click)="loadMessages()" class="button">
+                <span class="icon">
+                    <i class="fas fa-sync-alt"></i>
+                </span>
+                <span>Refresh</span>
+            </button>
+        </div>
+
+        <article class="media" *ngFor="let message of messages">
+            <div class="media-content">
+                <p>
+                    <strong>{{ message.subject }}</strong> &nbsp; <small>{{ message.name }} {{message.email}}</small>
+                </p>
+                <p>
+
+                </p>
+                <p>
+                    {{ message.message }}
+                </p>
+            </div>
+            <div class="media-right">
+                <button (click)="deleteMessage(message._id)" class="delete" aria-label="delete"></button>
+            </div>
+        </article>
+    </div>
+</div>

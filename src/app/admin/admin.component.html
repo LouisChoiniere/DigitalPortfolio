@@ -1,24 +1,20 @@
+<link rel="stylesheet" href="https://unpkg.com/bulmaswatch/darkly/bulmaswatch.min.css">
+
 <section class="section">
     <div class="container">
         <h1 class="title is-1">Admin Panel</h1>
     </div>
 
-
-    <div class="container box">
-        <h2 class="title is-2">Messages</h2>
-
-        <article class="message is-dark" *ngFor="let message of messages">
-            <div class="message-header">
-                <p>
-                    <strong>{{ message.subject }}</strong>
-                    <br>
-                    <small>{{ message.name }} {{message.email}}</small>
-                </p>
-            </div>
-            <div class="message-body">
-                {{ message.message }}
-            </div>
-        </article>
+    <div class="container tabs">
+        <ul>
+            <li routerLinkActive="is-active"><a routerLink="/admin/me">Me</a></li>
+            <li routerLinkActive="is-active"><a routerLink="/admin/projects">Projects</a></li>
+            <li routerLinkActive="is-active"><a routerLink="/admin/experiences">Experience</a></li>
+            <li routerLinkActive="is-active"><a routerLink="/admin/message">Messages</a></li>
+            <li routerLinkActive="is-active"><a routerLink="/admin/blog-post">Blog</a></li>
+        </ul>
     </div>
+
+    <router-outlet></router-outlet>
 
 </section>

@@ -1,0 +1,82 @@
+<table class="table is-bordered">
+    <tr>
+        <th>Logo</th>
+        <th>Link</th>
+        <th>Name</th>
+        <th>logo name</th>
+        <th>logo style</th>
+        <th>Edit</th>
+    </tr>
+
+    <tr *ngFor="let link of links; let i = index" [attr.data-index]="i">
+        <td><img src="https://img.icons8.com/{{link.logo.style}}/32/FAFAFA/{{link.logo.name}}.png" alt="{{link.name}}">
+        </td>
+        <td>{{link.link}}</td>
+        <td>{{link.name}}</td>
+        <td>{{link.logo.name}}</td>
+        <td>{{link.logo.style}}</td>
+        <td>
+            <div class="buttons">
+                <button (click)="editLink(i)" class="button is-small">
+                    <span class="icon is-small"> <i class="fas fa-edit"></i>
+                    </span>
+                </button>
+                <button (click)="deleteLink(i)" class="button is-small">
+                    <span class="icon is-small"> <i class="fas fa-trash-alt"></i>
+                    </span>
+                </button>
+            </div>
+        </td>
+    </tr>
+</table>
+<!-- <button (click)="newLink()" class="button is-small">Add new link</button> -->
+
+<div class="modal" [ngClass]="{'is-active': modal.isOpen}">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <form [formGroup]="form" class="form">
+                <div class="field">
+                    <label for="name">name</label>
+                    <div class="control">
+                        <input type="text" formControlName="name" id="name" name="name" class="input">
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <label for="link">link</label>
+                    <div class="control">
+                        <input type="text" formControlName="link" id="link" name="link" class="input">
+                    </div>
+                </div>
+                
+                <div class="field" formGroupName="logo">
+                    <label for="">Logo</label>
+                    <div class="control">
+                        <input type="text" formControlName="name" id="name" name="name" class="input">
+                    </div>
+                    <div class="control">
+                        <input type="text" formControlName="style" id="style" name="style" class="input">
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <label for="displayOrder">DisplayOrder</label>
+                    <div class="control">
+                        <input type="number" formControlName="displayOrder" id="displayOrder" name="displayOrder" class="input">
+                    </div>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button (click)="modalSave()" class="button">Ok</button>
+                    </div>
+                    <div class="control">
+                        <button (click)="modalClose()" class="button">Close</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <button (click)="modalClose()" class="modal-close is-large" aria-label="close"></button>
+</div>
