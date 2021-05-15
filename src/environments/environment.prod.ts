@@ -1,11 +1,12 @@
 export const environment = {
-  production: true,
+    production: true,
 
-  url: "http://localhost:3000",
+    url: "https://louischoiniere2.ddns.net",
 
     admin: {
         endpont: '/admin',
-        
+
+        me: '/me',
         message: '/contact',
         blog: '/blog',
         project: '/project',

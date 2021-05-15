@@ -65,12 +65,14 @@ export class ProjectsComponent implements OnInit {
         }
     }
 
-    saveProject() {
-        const project = this.projects.find(x => x._id == this.modal.project?._id);
+    saveProject(id?: string) {
+        const project = this.projects.find(x => x._id == id);
 
         if (project)
             this.service.saveProject(project).subscribe();
     }
+
+    
 
     deleteProject(id?: string) {
         if (id)
@@ -88,7 +90,6 @@ export class ProjectsComponent implements OnInit {
             ...project
         };
 
-        this.saveProject();
         this.modalClose();
     }
 

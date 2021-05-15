@@ -34,7 +34,7 @@ export class BlogPostsComponent implements OnInit {
             const blog: Blog = f.form.value;
             this.service.postBlogPost(blog).subscribe({
                 next: data => {
-                    console.error("Added blog post");
+                    console.log("Added blog post");
                     f.reset();
                     f.form.enable();
                 },

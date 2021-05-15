@@ -28,6 +28,11 @@ export class AdminLinksComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
+        this.sortLinks();
+    }
+    
+    sortLinks() {
+        this.links = this.links.sort((a, b) => a.displayOrder - b.displayOrder);
     }
 
     editLink(i: number) {
@@ -74,6 +79,7 @@ export class AdminLinksComponent implements OnInit {
 
     modalClose() {
         this.modal.isOpen = false;
+        this.sortLinks();
     }
 
 }

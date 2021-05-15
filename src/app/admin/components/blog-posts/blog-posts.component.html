@@ -51,9 +51,9 @@
 
         <article class="media" *ngFor="let blogPost of blogPosts">
             <div class="media-content">
-                <p>
-                    <strong>{{ blogPost.title }} </strong> &nbsp; <small>{{ blogPost.date }}</small>
-                </p>
+                <p class="title is-h6">{{ blogPost.title }}</p>
+                <p class="subtitle is-h6">{{ blogPost.date }} </p>
+
                 <p>
                     {{ blogPost.content }}
                 </p>

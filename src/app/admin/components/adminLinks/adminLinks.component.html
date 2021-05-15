@@ -5,6 +5,7 @@
         <th>Name</th>
         <th>logo name</th>
         <th>logo style</th>
+        <th>Order</th>
         <th>Edit</th>
     </tr>
 
@@ -15,8 +16,9 @@
         <td>{{link.name}}</td>
         <td>{{link.logo.name}}</td>
         <td>{{link.logo.style}}</td>
+        <td>{{link.displayOrder}}</td>
         <td>
-            <div class="buttons">
+            <div class="buttons is-grouped">
                 <button (click)="editLink(i)" class="button is-small">
                     <span class="icon is-small"> <i class="fas fa-edit"></i>
                     </span>

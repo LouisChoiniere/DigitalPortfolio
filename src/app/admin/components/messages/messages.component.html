@@ -15,12 +15,9 @@
 
         <article class="media" *ngFor="let message of messages">
             <div class="media-content">
-                <p>
-                    <strong>{{ message.subject }}</strong> &nbsp; <small>{{ message.name }} {{message.email}}</small>
-                </p>
-                <p>
+                <p class="title is-h6">{{ message.subject }}</p>
+                <p class="subtitle is-h6">{{ message.name }} &nbsp; {{message.email}}</p>
 
-                </p>
                 <p>
                     {{ message.message }}
                 </p>

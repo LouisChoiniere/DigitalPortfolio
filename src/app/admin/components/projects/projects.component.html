@@ -22,23 +22,23 @@
 
         <article class="media" *ngFor="let project of projects">
             <div class="media-content">
-                <p>
-                    <strong>{{ project.title }} </strong> &nbsp; <small>{{ project.date }}</small>
-                </p>
+                <h4 class="title is-h4">{{ project.title }}</h4>
+                <h4 class="subtitle is-4">{{ project.date }}</h4>
+
                 <p>
                     {{ project.description }}
                 </p>
+                
                 <p>
                     {{ project.goal }}
                 </p>
 
                 <app-adminLinks [links]="project.links"></app-adminLinks>
-                <nav class="level">
-                    <div class="level-left">
-                        <button (click)="editProject(project._id)" class="level-item button is-small">Edit</button>
-                        <button (click)="newLink(project._id)" class="level-item button is-small">Add new link</button>
-                    </div>
-                </nav>
+                <div class="buttons">
+                    <button (click)="saveProject(project._id)" class="button is-small">Save</button>
+                    <button (click)="editProject(project._id)" class="button is-small">Edit</button>
+                    <button (click)="newLink(project._id)" class="button is-small">Add new link</button>
+                </div>
             </div>
             <div class="media-right">
                 <button (click)="deleteProject(project._id)" class="delete" aria-label="delete"></button>
@@ -59,7 +59,7 @@
                         <input type="text" formControlName="title" id="title" name="title" class="input">
                     </div>
                 </div>
-                
+
                 <div class="field">
                     <label for="date">Date</label>
                     <div class="control">
@@ -73,7 +73,7 @@
                         <textarea formControlName="description" name="description" id="description" type="text" class="textarea"></textarea>
                     </div>
                 </div>
-                
+
                 <div class="field">
                     <label for="goal">Goal</label>
                     <div class="control">
@@ -90,7 +90,7 @@
 
                 <div class="field is-grouped">
                     <div class="control">
-                        <button (click)="modalSave()" class="button">Save</button>
+                        <button (click)="modalSave()" class="button">Ok</button>
                     </div>
                     <div class="control">
                         <button (click)="modalClose()" class="button">Close</button>
