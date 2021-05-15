@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '@env/environment';
 import Blog from '@model/blog';
 
 @Injectable({
@@ -10,6 +11,6 @@ export class BlogService {
     constructor(private http: HttpClient) { }
 
     getBlog() {
-        return this.http.get<Blog[]>('http://localhost:3000/me/blog')
+        return this.http.get<Blog[]>(environment.url + '/me/blog')
     }
 }
