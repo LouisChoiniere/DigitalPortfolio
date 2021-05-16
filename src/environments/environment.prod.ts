@@ -1,7 +1,7 @@
 export const environment = {
     production: true,
 
-    url: "https://louischoiniere2.ddns.net",
+    url: "https://a26deb809eac.ngrok.io",
 
     admin: {
         endpont: '/admin',
