@@ -1,7 +1,11 @@
 export const environment = {
     production: true,
 
-    url: "https://a26deb809eac.ngrok.io",
+    url: "https://7cf352f102fa.ngrok.io",
+
+    auth: {
+        signIn: '/auth/signIn'
+    },
 
     admin: {
         endpont: '/admin',

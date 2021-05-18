@@ -29,7 +29,7 @@ import { JwtModule } from '@auth0/angular-jwt';
         JwtModule.forRoot({
             config: {
                 tokenGetter: tokenGetter,
-                allowedDomains: ["localhost:3000"]
+                allowedDomains: ["7cf352f102fa.ngrok.io"]
             },
         }),
         CommonModule,
