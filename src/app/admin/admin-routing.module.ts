@@ -8,11 +8,13 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { BlogPostsComponent } from './components/blog-posts/blog-posts.component';
 import { AdminLinksComponent } from './components/adminLinks/adminLinks.component';
+import { AuthGuard } from '../services/auth-guard.service';
 
 const routes: Routes = [
     {
         path: 'admin',
         component: AdminComponent,
+        canActivate: [AuthGuard],
         children: [
             {
                 path: 'me',

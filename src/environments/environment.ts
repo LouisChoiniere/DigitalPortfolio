@@ -7,9 +7,13 @@ export const environment = {
 
     url: "http://localhost:3000",
 
+    auth: {
+        signIn: '/auth/signIn'
+    },
+
     admin: {
         endpont: '/admin',
-        
+
         me: '/me',
         message: '/contact',
         blog: '/blog',
