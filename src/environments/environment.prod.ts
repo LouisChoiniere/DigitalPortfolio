@@ -1,7 +1,7 @@
 export const environment = {
     production: true,
 
-    url: "https://7cf352f102fa.ngrok.io",
+    url: "https://e5946ba6906e.ngrok.io",
 
     auth: {
         signIn: '/auth/signIn'
